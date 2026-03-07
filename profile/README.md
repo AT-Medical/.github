@@ -1,66 +1,68 @@
 # AT Medical
 
-Digital health, medical education and clinical innovation.
+AT Medical develops digital platforms, clinical tools, and educational solutions for modern healthcare, medical training, and research.
 
-AT Medical develops digital platforms, clinical tools and educational technologies to support modern healthcare systems, medical training and research.
+Our projects focus on improving clinical decision support, medical education, and digital health infrastructure.
+
+---
+
+## Quick Links
+
+🌐 Website  
+https://www.at-medical.de
+
+🎓 Academy  
+https://www.at-medical.de
+
+🔬 Research  
+https://www.at-medical.de
+
+📬 Contact  
+info@at-medical.de
 
 ---
 
 ## Areas of Work
 
-### Medical Education
-Development of digital learning platforms, simulation environments and educational resources for healthcare professionals.
+🧠 **Medical Education**  
+Digital learning platforms and professional training programs for healthcare professionals.
 
-### Clinical Tools
-Clinical calculators, decision-support tools and software designed to support evidence-based medicine and improve patient safety.
+⚕️ **Clinical Decision Support**  
+Software tools supporting diagnostics, therapy planning, and medication safety.
 
-### Digital Health Infrastructure
-Secure and scalable platforms supporting medical data management, interoperability and healthcare services.
+💻 **Digital Health Infrastructure**  
+Secure platforms and scalable infrastructure for healthcare systems.
 
-### Research & Innovation
-Exploration and development of new concepts in digital medicine, clinical analytics and medical technology.
+🔬 **Research & Innovation**  
+Development of new concepts and technologies in digital medicine and clinical analytics.
 
 ---
 
 ## Selected Projects
 
-| Project | Description |
-|-------|-------------|
-| **PrescriptCheck** | Clinical decision support tool for improving prescription safety and detecting medication-related risks. |
-| **AT Medical Academy** | Digital learning infrastructure for medical education and professional training. |
-| **Clinical Calculators** | Collection of medical calculators and clinical utility tools. |
+**PrescriptCheck**  
+Clinical decision-support tool designed to detect prescription risks and medication interactions.
 
----
+**AT Medical Academy Platform**  
+Digital learning infrastructure for medical education and professional training.
 
-## Open Source
-
-Some utilities and clinical tools developed by AT Medical are released as open-source projects to support the global medical and developer community.
-
-You can find these projects in our public repositories.
+**Clinical Calculators**  
+Medical tools supporting evidence-based clinical decision making.
 
 ---
 
 ## Collaboration
 
-We welcome collaboration with:
+We welcome collaboration with healthcare professionals, researchers, developers, universities, and healthcare organizations.
 
-- healthcare professionals
-- developers
-- researchers
-- universities
-- healthcare institutions
-
-If you are interested in collaboration, research partnerships or development projects, feel free to reach out.
+If you are interested in collaboration or research partnerships, feel free to reach out.
 
 ---
 
 ## Organization
 
-Website  
-https://www.at-medical.de
-
-Location  
-Heidelberg, Germany
+📍 Heidelberg, Germany  
+🌐 https://www.at-medical.de
 
 ---
 
