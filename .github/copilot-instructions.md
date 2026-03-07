@@ -72,9 +72,9 @@ This organization uses a **protected `main` branch**.
 
 Copilot should assume the following workflow:
 
-1. changes are created in a feature branch
-2. changes are submitted via pull request
-3. changes are reviewed before merging
+1. Create changes in a feature branch
+2. Submit changes via pull request
+3. Review changes before merging
 
 Generated commit suggestions should therefore be:
 
