@@ -1,0 +1,18 @@
+title = "AT Medical Gitleaks Configuration"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Global allowlist for harmless placeholders and documentation examples"
+paths = [
+  '''(?i).*\.md$''',
+  '''(?i).*LICENSE$'''
+]
+regexes = [
+  '''(?i)example(token|key|secret|password)''',
+  '''(?i)your[_-]?(token|key|secret|password)''',
+  '''(?i)changeme''',
+  '''(?i)dummy''',
+  '''(?i)test[_-]?(token|key|secret|password)'''
+]
