@@ -1,109 +1,89 @@
-# AT Medical GmbH
+<p align="center">
+<img src="https://www.at-medical.de/assets/ci/logo.png" height="120">
+</p>
 
-### Digital Health · Medical Education · Clinical Innovation
+<h1 align="center">AT Medical GmbH®</h1>
 
-AT Medical develops digital platforms, clinical tools, and educational solutions for modern healthcare, medical training, and medical research.
+<p align="center">
+Digital Health · Medical Education · Clinical Innovation
+</p>
 
-Our mission is to improve clinical workflows, support evidence-based decision making, and advance the integration of digital technologies into modern medicine.
-
----
-
-## Quick Links
-
-🌐 **Website**  
-https://www.at-medical.de  
-
-🎓 **AT Medical Academy**  
-https://www.at-medical.de  
-
-📬 **Contact**  
-info@at-medical.de  
+<p align="center">
+Developing digital platforms, clinical tools, and educational solutions for modern healthcare.
+</p>
 
 ---
 
-## Areas of Work
+## 🌐 Quick Links
 
-🧠 **Medical Education**  
-Development of digital learning platforms, simulation environments, and training programs for healthcare professionals.
-
-⚕️ **Clinical Decision Support**  
-Software tools supporting diagnostics, therapy planning, and medication safety.
-
-💻 **Digital Health Infrastructure**  
-Secure platforms and scalable systems supporting modern healthcare services and data workflows.
-
-🔬 **Research & Innovation**  
-Exploration and development of new concepts in digital medicine, clinical analytics, and healthcare technology.
+| Resource | Link |
+|--------|------|
+| Website | https://www.at-medical.de |
+| Academy | https://www.at-medical.de |
+| Contact | info@at-medical.de |
 
 ---
 
-## Platforms & Projects
+## 🧠 Areas of Work
 
-### AT Medical Academy
-Digital learning platform providing structured medical education, professional training programs, and advanced medical courses.
+### Medical Education
+Development of digital learning platforms and professional training programs for healthcare professionals.
 
-### PrescriptCheck
-Clinical decision-support system designed to detect prescription risks, medication interactions, and safety issues.
+### Clinical Decision Support
+Software tools designed to assist diagnostics, therapy planning, and medication safety.
 
-### Clinical Calculators & Tools
-Development of clinical tools and medical calculators supporting evidence-based practice in everyday clinical work.
+### Digital Health Infrastructure
+Secure and scalable platforms supporting modern healthcare systems.
 
-### Research & Development
-Development of innovative medical concepts, algorithms, and technologies supporting the future of digital medicine.
+### Research & Innovation
+Development of new technologies and concepts in digital medicine.
 
 ---
 
-## Open Source
+## 🚀 Platforms & Projects
+
+| Project | Description |
+|-------|-------------|
+| PrescriptCheck | Clinical decision-support system for detecting prescription risks and medication interactions |
+| AT Medical Academy | Digital learning infrastructure for medical education |
+| Clinical Calculators | Tools supporting evidence-based clinical decision making |
+| Research & Development | Development of medical algorithms and digital healthcare technologies |
+
+---
+
+## 🔓 Open Source
 
 Selected tools and utilities developed by AT Medical are released as open-source projects to support the global healthcare and developer community.
 
-Open-source repositories include educational tools, medical calculators, and research utilities.
+---
+
+## 🤝 Collaboration
+
+AT Medical welcomes collaboration with healthcare professionals, researchers, developers, universities and healthcare organizations.
 
 ---
 
-## Collaboration
+<hr>
 
-We welcome collaboration with:
+<p align="center">
+© Copyright 2017 - 2026 | <strong>AT Medical GmbH®</strong><br>
+Alle Rechte vorbehalten | All Rights reserved
+</p>
 
-- healthcare professionals  
-- software developers  
-- researchers and academic institutions  
-- healthcare organizations  
-- medical technology companies  
+<p align="center">
+<a href="https://www.at-medical.de/impressum">Impressum</a> |
+<a href="https://www.at-medical.de/legal/agb">AGB</a> |
+<a href="https://www.at-medical.de/legal/datenschutz">Datenschutz</a> |
+<a href="https://www.at-medical.de/legal/widerruf">Widerruf</a> |
+<a href="https://www.at-medical.de/it-security">Sicherheit</a> |
+<a href="https://www.at-medical.de/legal/barrierefreiheit">Barrierefreiheit</a> |
+<a href="https://www.at-medical.de/code-of-conduct">Code of Conduct</a> |
+<a href="https://www.at-medical.de/legal/lieferkettenschutzgesetz">Lieferkettenschutzgesetz</a>
+</p>
 
-If you are interested in collaboration or research partnerships, please contact us.
-
----
-
-## Technology
-
-Our development work focuses on modern, scalable technologies supporting healthcare innovation.
-
-Areas include:
-
-- digital learning platforms
-- clinical software tools
-- secure healthcare infrastructure
-- medical data processing
-- research and algorithm development
-
----
-
-## Organization
-
-📍 Heidelberg, Germany  
-
-🌐 https://www.at-medical.de  
-
-📬 info@at-medical.de  
-
----
-
-## Legal
-
-All rights reserved unless otherwise stated.  
-Open-source repositories are released under their respective licenses.
-
----
-
-© AT Medical GmbH
+<p align="center">
+Bei Fragen kontaktieren Sie uns über unser
+<a href="https://www.at-medical.de/kontakt">Kontaktformular</a>
+oder via
+<a href="mailto:Info@at-medical.de">E-Mail</a>.
+</p>
