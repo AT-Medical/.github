@@ -52,7 +52,7 @@ Sensitive values must always be referenced via:
 
 Many repositories are part of the **AT Medical infrastructure stack**, including:
 
-- VPS infrastructure
+- Virtual Private Server (VPS) infrastructure
 - Docker services
 - web platforms
 - automation tools
