@@ -1,47 +1,42 @@
 # AT Medical
 
-Welcome to the official GitHub organization of **AT Medical**.
+Digital health, medical education and clinical innovation.
 
-AT Medical develops digital platforms, educational tools, and clinical software solutions for modern healthcare, medical education, and research.
-
-Our projects focus on improving **clinical decision support, medical training, and digital health infrastructure**.
+AT Medical develops digital platforms, clinical tools and educational technologies to support modern healthcare systems, medical training and research.
 
 ---
 
 ## Areas of Work
 
 ### Medical Education
-Digital learning platforms, simulation tools, and educational resources for healthcare professionals.
+Development of digital learning platforms, simulation environments and educational resources for healthcare professionals.
 
 ### Clinical Tools
-Software and algorithms designed to support clinical workflows, medical calculations, and decision support.
+Clinical calculators, decision-support tools and software designed to support evidence-based medicine and improve patient safety.
 
 ### Digital Health Infrastructure
-Secure platforms and infrastructure supporting modern healthcare services, data management, and interoperability.
+Secure and scalable platforms supporting medical data management, interoperability and healthcare services.
 
 ### Research & Innovation
-Development of new concepts and technologies in medical science, digital medicine, and clinical analytics.
+Exploration and development of new concepts in digital medicine, clinical analytics and medical technology.
 
 ---
 
 ## Selected Projects
 
-- **PrescriptCheck**  
-  Clinical decision-support tool designed to improve prescription safety and detect medication-related risks.
-
-- **AT Medical Academy Platform**  
-  Digital learning infrastructure for medical education and professional training.
-
-- **Clinical Calculators & Tools**  
-  Development of medical calculators and tools supporting evidence-based clinical practice.
+| Project | Description |
+|-------|-------------|
+| **PrescriptCheck** | Clinical decision support tool for improving prescription safety and detecting medication-related risks. |
+| **AT Medical Academy** | Digital learning infrastructure for medical education and professional training. |
+| **Clinical Calculators** | Collection of medical calculators and clinical utility tools. |
 
 ---
 
 ## Open Source
 
-Some tools and utilities developed by AT Medical are released as open-source projects to support the global medical and developer community.
+Some utilities and clinical tools developed by AT Medical are released as open-source projects to support the global medical and developer community.
 
-These projects are available in our public repositories.
+You can find these projects in our public repositories.
 
 ---
 
@@ -49,19 +44,19 @@ These projects are available in our public repositories.
 
 We welcome collaboration with:
 
-- healthcare professionals  
-- researchers  
-- developers  
-- academic institutions  
-- healthcare organizations  
+- healthcare professionals
+- developers
+- researchers
+- universities
+- healthcare institutions
 
-If you are interested in collaboration or research partnerships, feel free to reach out.
+If you are interested in collaboration, research partnerships or development projects, feel free to reach out.
 
 ---
 
 ## Organization
 
-Official website  
+Website  
 https://www.at-medical.de
 
 Location  
@@ -69,4 +64,4 @@ Heidelberg, Germany
 
 ---
 
-© AT Medical
+© AT Medical GmbH
