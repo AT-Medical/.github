@@ -1,0 +1,92 @@
+name: Repo Guard
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pull-requests: write
+  security-events: write
+
+jobs:
+  secret-scan:
+    name: Secret scan (Gitleaks)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run Gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_CONFIG: .gitleaks.toml
+
+  actionlint:
+    name: Validate GitHub Actions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run actionlint
+        uses: raven-actions/actionlint@v2
+
+  dockerfile-lint:
+    name: Lint Dockerfiles
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run Hadolint
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: Dockerfile
+        continue-on-error: true
+
+      - name: Find and lint all Dockerfiles
+        shell: bash
+        run: |
+          shopt -s globstar nullglob
+          files=(**/Dockerfile **/*.Dockerfile **/dockerfile)
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "No Dockerfiles found."
+            exit 0
+          fi
+          echo "Found Dockerfiles:"
+          printf '%s\n' "${files[@]}"
+
+  repo-summary:
+    name: PR summary
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post summary comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const body = [
+              "## Automated PR summary",
+              "",
+              `- Title: ${pr.title}`,
+              `- Author: @${pr.user.login}`,
+              `- Base: \`${pr.base.ref}\``,
+              `- Head: \`${pr.head.ref}\``,
+              "",
+              "Checks in this workflow:",
+              "- Secret scan",
+              "- GitHub Actions validation",
+              "- Dockerfile linting"
+            ].join("\n");
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.number,
+              body
+            });
