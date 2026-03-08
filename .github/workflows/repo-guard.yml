@@ -1,62 +1,46 @@
 name: Repo Guard
 
 on:
-  pull_request:
   push:
-    branches:
-      - main
-
-permissions:
-  contents: read
-  pull-requests: write
+    branches: [ main ]
+  pull_request:
 
 jobs:
-  repo-summary:
-    name: Basic repository check
+  repo-check:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Basic structure check
-        shell: bash
+      - name: Repository overview
         run: |
-          echo "Running basic repository checks..."
+          echo "Repo Guard basic check running"
 
-          if [ ! -f README.md ]; then
-            echo "README.md is missing"
-          else
+          echo "Listing repository files:"
+          ls -la
+
+          echo "Checking key files..."
+
+          if [ -f README.md ]; then
             echo "README.md found"
-          fi
-
-          if [ -d ".github" ]; then
-            echo ".github directory found"
           else
-            echo ".github directory missing"
+            echo "README.md missing"
           fi
 
-          if [ -f ".github/copilot-instructions.md" ]; then
-            echo "Copilot instructions found"
+          if [ -f SECURITY.md ]; then
+            echo "SECURITY.md found"
           else
-            echo "Copilot instructions missing"
+            echo "SECURITY.md missing"
           fi
 
-          if [ -f ".github/dependabot.yml" ]; then
-            echo "Dependabot config found"
+          if [ -f CONTRIBUTING.md ]; then
+            echo "CONTRIBUTING.md found"
           else
-            echo "Dependabot config missing"
+            echo "CONTRIBUTING.md missing"
           fi
 
-      - name: Create workflow summary
-        shell: bash
-        run: |
-          {
-            echo "## Repo Guard summary"
-            echo ""
-            echo "- Workflow started successfully"
-            echo "- Repository checkout completed"
-            echo "- Basic structure check completed"
-            echo ""
-            echo "This is a minimal fallback workflow without external marketplace actions."
-          } >> "$GITHUB_STEP_SUMMARY"
+          if [ -f CODEOWNERS ]; then
+            echo "CODEOWNERS found"
+          else
+            echo "CODEOWNERS missing"
+          fi
+
+          echo "Basic repo structure check complete."
