@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/AT-Medical/assets/main/logo.svg" width="220" alt="AT Medical GmbH Logo">
+  <img src="https://raw.githubusercontent.com/AT-Medical/ATMED-assets/main/assets/logos/svg/logo.svg" width="220" alt="AT Medical GmbH Logo">
 </p>
 
 <h1 align="center">AT Medical GmbH®</h1>
@@ -56,19 +56,30 @@ The repositories in this organization follow a structured, quality-oriented and 
 
 ## Kernbereiche | Core Areas
 
+### 🏗️ Kern-Repositories | Core Repositories
+
 | Bereich | Repository | Zweck |
 |---|---|---|
 | Governance | `.github` | Organisationsweite Standards, Vorlagen und zentrale GitHub-Konfiguration |
-| Infrastruktur | `ATMED-infrastructure` | Technische Basisarchitektur und Plattformgrundlagen |
-| DevOps | `ATMED-devops` | Automatisierung, CI/CD und Bereitstellungslogik |
-| Web | `ATMED-web` | Web-Komponenten, Frontends und browserbasierte Oberflächen |
+| Assets | `ATMED-assets` | Zentrales Branding, Logos und statische Medienressourcen |
 | Dokumentation | `ATMED-docs` | Zentrale technische Dokumentation und Referenzmaterial |
-| Tools | `ATMED-tools` | Wiederverwendbare Hilfsmittel, Utilities und technische Werkzeuge |
-| Forschung | `ATMED-research` | Prototypen, Konzepte und innovationsnahe Entwicklungen |
-| Academy | `ATMED-academy` | Komponenten für digitale Bildungs- und Kursplattformen |
-| Governance Toolkit | `github-governance` | Compliance-, Prüf- und Organisationslogik |
-| Produktentwicklung | `PrescriptCheck` | Produkt- und Entwicklungsrepository im Bereich digitaler Rezeptprüfung |
-| Sandbox | `demo-repository` | Test- und Demonstrationsumgebung für Workflows und Strukturen |
+| DevOps | `ATMED-devops` | Automatisierung, CI/CD und Bereitstellungslogik |
+| Infrastruktur | `ATMED-infrastructure` | Technische Basisarchitektur und Plattformgrundlagen |
+| Web | `ATMED-web` | Web-Komponenten, Frontends und browserbasierte Oberflächen |
+| Sandbox | `ATMED-sandbox` | Test- und Demonstrationsumgebung für Workflows und Strukturen |
+
+### 💡 Geschäftsbereich-Repositories | Business-Area Repositories
+
+| Bereich | Repository | Zweck |
+|---|---|---|
+| Digital | `DIG-prescriptcheck` | KI-gestützte Rezeptvalidierung und Betrugserkennung für medizinische Workflows |
+| Digital | `DIG-respondai` | KI-basierte Notfallkoordination und Entscheidungsunterstützung für die Katastrophenmedizin |
+| Digital | `DIG-cognicore` | Interaktive digitale Lern- und Kommunikationsplattform für medizinische Bildung und Konferenzen |
+| Digital | `DIG-revivation` | Digitale Werkzeuge für Reanimationstraining, Simulation und Notfallmedizin |
+| Forschung | `RES-matrex` | Forschungsplattform für prädiktive Risikobewertungsmodelle in der Intensivmedizin |
+| Forschung | `RES-metaboliq` | Forschungsplattform für Stoffwechselregulation, Mitochondrienfunktion und Ernährungsoptimierung |
+| Forschung | `RES-novablood` | Forschungsprojekt für künstliche Sauerstoffträger und nächste Generation Blutersatztechnologien |
+| Academy | `ACA-elearning` | Kernrepository des AT Medical Academy digitalen Lernökosystems inkl. Moodle-Integration |
 
 ---
 

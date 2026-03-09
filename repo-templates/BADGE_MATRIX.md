@@ -73,7 +73,10 @@ Example:
 
 Example:
 
-PrescriptCheck
+DIG-prescriptcheck  
+DIG-respondai  
+DIG-cognicore  
+DIG-revivation
 
 Badges:
 
@@ -95,11 +98,63 @@ Example:
 
 ---
 
+# Research Repositories
+
+Example:
+
+RES-matrex  
+RES-metaboliq  
+RES-novablood
+
+Badges:
+
+Build  
+Release  
+Version  
+Visibility  
+Domain  
+Status  
+
+Example:
+
+![Build](https://github.com/AT-Medical/REPOSITORY/actions/workflows/ci.yml/badge.svg)
+
+![Release](https://img.shields.io/badge/release-research-blue)
+
+![Version](https://img.shields.io/badge/version-unreleased-purple)
+
+---
+
+# Academy Repositories
+
+Example:
+
+ACA-elearning
+
+Badges:
+
+Build  
+Release  
+Version  
+Visibility  
+Domain  
+Status  
+
+Example:
+
+![Build](https://github.com/AT-Medical/REPOSITORY/actions/workflows/ci.yml/badge.svg)
+
+![Release](https://img.shields.io/badge/release-internal-blue)
+
+![Version](https://img.shields.io/badge/version-unreleased-purple)
+
+---
+
 # Sandbox / Demo Repositories
 
 Example:
 
-demo-repository
+ATMED-sandbox
 
 Badges:
 

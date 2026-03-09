@@ -2,10 +2,19 @@
 
 This document describes the intended role of the main repositories in the AT Medical GitHub organization.
 
-## Organizational Role of Repositories
+## Core Repositories
 
 ### `.github`
 Central organization repository for shared templates, governance defaults, GitHub workflows, issue templates, pull request templates, Copilot instructions, and repository-wide operational standards.
+
+### `ATMED-assets`
+Central repository for AT Medical branding assets including logos, icons, color palettes, and static media resources used across all repositories and platforms.
+
+### `ATMED-docs`
+Repository for formal technical documentation, governance standards, architecture descriptions, operational procedures, implementation notes, and long-form project documentation.
+
+### `ATMED-devops`
+Repository for CI/CD workflows, automation logic, repository maintenance workflows, deployment workflows, and operational GitHub automation.
 
 ### `ATMED-infrastructure`
 Core infrastructure repository for server architecture, Docker stacks, deployment structure, reverse proxy setup, authentication services, networking, backup concepts, monitoring, and infrastructure governance.
@@ -13,20 +22,53 @@ Core infrastructure repository for server architecture, Docker stacks, deploymen
 ### `ATMED-web`
 Main repository for public-facing websites, landing pages, frontend assets, static web components, contact flows, and related web presentation logic.
 
-### `ATMED-devops`
-Repository for CI/CD workflows, automation logic, repository maintenance workflows, deployment workflows, and operational GitHub automation.
+### `ATMED-sandbox`
+Sandbox and demonstration environment for testing GitHub workflows, configurations and repository structures. Not used in production.
 
-### `ATMED-tools`
-Repository for internal helper tools, scripts, import/export utilities, maintenance helpers, administrative tools, and reusable operational support code.
+> **Rename required:** `demo-repository` must be renamed to `ATMED-sandbox`. This rename cannot be executed automatically and must be performed manually via GitHub repository settings.
 
-### `ATMED-academy`
-Repository for academy-related platform elements, e-learning integrations, Moodle-related assets or code, educational delivery logic, and learning platform support services.
+---
 
-### `ATMED-research`
-Repository for prototypes, experiments, proof-of-concept implementations, AI-assisted innovation projects, and research-driven technical concepts.
+## Business-Area Repositories
 
-### `ATMED-docs`
-Repository for formal technical documentation, governance standards, architecture descriptions, operational procedures, implementation notes, and long-form project documentation.
+### `DIG-prescriptcheck`
+AI-assisted prescription validation and fraud detection platform for medical and pharmaceutical workflows.
+
+> **Rename required:** `PrescriptCheck` must be renamed to `DIG-prescriptcheck`. This rename cannot be executed automatically and must be performed manually via GitHub repository settings. All content remains intact.
+
+### `DIG-respondai`
+AI-powered emergency response coordination and decision support system for disaster medicine and mass casualty incidents.
+
+### `DIG-cognicore`
+Interactive digital learning and communication platform for medical education, conferences and hybrid teaching environments.
+
+### `DIG-revivation`
+Digital tools for resuscitation training, physiological simulation and emergency medicine education.
+
+### `RES-matrex`
+Research platform for predictive risk scoring models in intensive care medicine and critical care monitoring.
+
+### `RES-metaboliq`
+Research platform investigating metabolic regulation, mitochondrial function and nutritional optimization.
+
+### `RES-novablood`
+Research project exploring artificial oxygen carriers and next-generation blood substitute technologies.
+
+### `ACA-elearning`
+Core repository for the AT Medical Academy digital learning ecosystem including Moodle integration and course infrastructure.
+
+---
+
+## Repository Prefix Conventions
+
+| Prefix | Domain | Type |
+|--------|--------|------|
+| `ATMED-` | Core infrastructure | Platform / Governance |
+| `DIG-` | Digital products | Software / AI |
+| `RES-` | Research projects | Research / Data |
+| `ACA-` | Academy / Education | Learning platform |
+
+---
 
 ## Repository Boundaries
 
@@ -39,18 +81,31 @@ Copilot and contributors should respect repository boundaries.
 ### Web platform code belongs in:
 - `ATMED-web`
 
-### Learning platform code belongs in:
-- `ATMED-academy`
-
-### Utility scripts belong in:
-- `ATMED-tools`
-
-### Experimental code belongs in:
-- `ATMED-research`
+### Branding and media assets belong in:
+- `ATMED-assets`
 
 ### Formal documentation belongs in:
 - `ATMED-docs`
 - or shared governance files in `.github`
+
+### Digital product code belongs in:
+- `DIG-prescriptcheck`
+- `DIG-respondai`
+- `DIG-cognicore`
+- `DIG-revivation`
+
+### Research code and data belong in:
+- `RES-matrex`
+- `RES-metaboliq`
+- `RES-novablood`
+
+### Academy / e-learning code belongs in:
+- `ACA-elearning`
+
+### Experimental sandbox code belongs in:
+- `ATMED-sandbox`
+
+---
 
 ## Change Discipline
 
@@ -82,3 +137,4 @@ New repositories should follow the same model:
 - minimal overlap
 - explicit documentation
 - security-aware defaults
+- consistent naming prefix per domain

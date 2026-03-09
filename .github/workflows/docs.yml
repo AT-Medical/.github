@@ -1,0 +1,61 @@
+name: Docs Check
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+    paths:
+      - '**.md'
+      - 'docs/**'
+
+  pull_request:
+    branches:
+      - main
+      - develop
+    paths:
+      - '**.md'
+      - 'docs/**'
+
+permissions:
+  contents: read
+
+jobs:
+  docs:
+    name: Documentation Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check for required documentation files
+        shell: bash
+        run: |
+          echo "Checking for required governance documentation..."
+          MISSING=0
+          for FILE in README.md SECURITY.md; do
+            if [ ! -f "$FILE" ]; then
+              echo "MISSING: $FILE"
+              MISSING=$((MISSING + 1))
+            else
+              echo "OK: $FILE"
+            fi
+          done
+          if [ "$MISSING" -gt 0 ]; then
+            echo "One or more required documentation files are missing."
+            exit 1
+          fi
+          echo "All required documentation files are present."
+
+      - name: Check README structure
+        shell: bash
+        run: |
+          echo "Checking README.md for bilingual sections..."
+          if [ -f README.md ]; then
+            if grep -q "🇩🇪" README.md && grep -q "🇬🇧" README.md; then
+              echo "OK: README.md contains bilingual markers."
+            else
+              echo "WARNING: README.md may be missing bilingual section markers (🇩🇪 / 🇬🇧)."
+            fi
+          fi

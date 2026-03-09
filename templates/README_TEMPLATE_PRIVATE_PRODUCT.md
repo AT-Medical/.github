@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/AT-Medical/assets/main/logo.svg" width="180">
+<img src="https://raw.githubusercontent.com/AT-Medical/ATMED-assets/main/assets/logos/svg/logo.svg" width="180">
 </p>
 
 <h1 align="center">Product Name</h1>

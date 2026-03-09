@@ -97,6 +97,30 @@ Reason:
 
 ---
 
+### 8. Repository architecture standardization – enterprise governance alignment
+Status: active  
+Scope: organization
+
+The organization repository architecture has been standardized according to AT Medical enterprise governance standards.
+
+The following repository prefix scheme is now in effect:
+
+| Prefix | Domain |
+|--------|--------|
+| `ATMED-` | Core infrastructure and platform repositories |
+| `DIG-` | Digital product repositories |
+| `RES-` | Research repositories |
+| `ACA-` | Academy and education repositories |
+
+Implications:
+- `PrescriptCheck` must be renamed to `DIG-prescriptcheck` (manual rename required via GitHub settings)
+- `demo-repository` must be renamed to `ATMED-sandbox` (manual rename required via GitHub settings)
+- All logo references now point to the centralized `ATMED-assets` repository
+- New business-area repositories follow domain prefix conventions
+- All documentation must be bilingual (German first, then English)
+
+---
+
 ## Future Decision Logging
 
 Future decisions should be added in a simple format:

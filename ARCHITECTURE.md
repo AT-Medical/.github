@@ -58,7 +58,26 @@ Typical topics:
 - learning support tools
 - webinar and teaching integrations
 
-### 4. Tools / Internal Services
+### 4. Digital Products (DIG-)
+Digital product repositories contain AI-assisted applications, clinical decision support tools, and digital health platforms.
+
+Typical topics:
+- AI-assisted prescription validation (DIG-prescriptcheck)
+- emergency response coordination (DIG-respondai)
+- digital learning and conference platforms (DIG-cognicore)
+- resuscitation training and simulation (DIG-revivation)
+
+### 5. Research (RES-)
+Research repositories contain scientific experiments, data models, predictive risk scoring, and evidence-based research projects.
+
+Typical topics:
+- predictive risk scoring models (RES-matrex)
+- metabolic regulation research (RES-metaboliq)
+- artificial oxygen carrier research (RES-novablood)
+- datasets and analysis scripts
+- research documentation
+
+### 6. Tools / Internal Services
 Tool repositories contain internal utilities, scripts, helper services, automation helpers, and operational support tools.
 
 Typical topics:
@@ -69,16 +88,7 @@ Typical topics:
 - maintenance scripts
 - operational automation
 
-### 5. Research / Prototypes
-Research repositories contain experimental ideas, prototypes, proof-of-concept implementations, and innovation projects.
-
-Typical topics:
-- prototype tools
-- experimental clinical support ideas
-- AI-assisted concepts
-- research-oriented software experiments
-
-### 6. Documentation / Governance
+### 7. Documentation / Governance
 Documentation repositories contain policies, standards, architecture descriptions, governance documents, workflows, and operational knowledge.
 
 Typical topics:
