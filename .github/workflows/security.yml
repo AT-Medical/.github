@@ -12,7 +12,7 @@ on:
       - develop
       - staging
   schedule:
-    - cron: '0 4 * * 1'
+    - cron: "0 4 * * 1"
 
 permissions:
   contents: read
@@ -89,8 +89,12 @@ jobs:
       - name: Check .gitignore exists
         shell: bash
         run: |
-          test -f .gitignore
-          echo ".gitignore exists."
+          if [ -f ".gitignore" ]; then
+            echo ".gitignore exists."
+          else
+            echo ".gitignore missing."
+            exit 1
+          fi
 
       - name: Validate GitHub workflow files
         shell: bash
@@ -98,9 +102,13 @@ jobs:
           set -e
 
           echo "Checking workflow directory..."
-          test -d .github/workflows
 
-          count=$(find .github/workflows -type f \( -name "*.yml" -o -name "*.yaml" \) | wc -l)
+          if [ ! -d ".github/workflows" ]; then
+            echo "Missing .github/workflows directory"
+            exit 1
+          fi
+
+          count=$(find .github/workflows -type f | wc -l)
           echo "Workflow file count: $count"
 
           if [ "$count" -eq 0 ]; then
@@ -111,7 +119,7 @@ jobs:
       - name: Check SECURITY.md exists
         shell: bash
         run: |
-          if [ -f SECURITY.md ] || [ -f .github/SECURITY.md ]; then
+          if [ -f "SECURITY.md" ] || [ -f ".github/SECURITY.md" ]; then
             echo "SECURITY.md found."
           else
             echo "SECURITY.md missing."
@@ -121,7 +129,7 @@ jobs:
       - name: Check CODEOWNERS optional presence
         shell: bash
         run: |
-          if [ -f .github/CODEOWNERS ] || [ -f CODEOWNERS ] || [ -f docs/CODEOWNERS ]; then
+          if [ -f ".github/CODEOWNERS" ] || [ -f "CODEOWNERS" ] || [ -f "docs/CODEOWNERS" ]; then
             echo "CODEOWNERS found."
           else
             echo "CODEOWNERS not found. This is allowed, but recommended."
