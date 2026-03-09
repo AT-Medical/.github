@@ -79,7 +79,7 @@ jobs:
               ! -path "*/.git/*" \
               ! -path "*/vendor/*" \
               ! -path "*/node_modules/*" \
-              ! -path "*/.github/*" \
+              ! -path "*/.github/workflows/*" \
               -print -quit 2>/dev/null | grep -q .; then
               echo "Forbidden file found for pattern: $pattern"
               found=1
