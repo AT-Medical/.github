@@ -1,8 +1,6 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/AT-Medical/assets/main/logo.svg" width="220" alt="AT Medical GmbH Logo">
+  <img src="https://raw.githubusercontent.com/AT-Medical/ATMED-assets/main/assets/logos/svg/logo.svg" width="320" alt="AT Medical Logo">
 </p>
-
-<h1 align="center">AT Medical GmbH®</h1>
 
 <p align="center">
   Digitale Infrastruktur für medizinische Bildung, Forschung und klinische Innovation
