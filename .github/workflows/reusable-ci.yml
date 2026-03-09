@@ -1,0 +1,62 @@
+name: Reusable CI
+
+on:
+  workflow_call:
+    inputs:
+      run_lint:
+        required: false
+        type: boolean
+        default: true
+      run_tests:
+        required: false
+        type: boolean
+        default: true
+      node_version:
+        required: false
+        type: string
+        default: "20"
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node_version }}
+          cache: npm
+
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          elif [ -f package.json ]; then
+            npm install
+          else
+            echo "No package.json found, skipping dependency install."
+          fi
+
+      - name: Lint
+        if: ${{ inputs.run_lint }}
+        run: |
+          if [ -f package.json ]; then
+            npm run lint --if-present
+          else
+            echo "No package.json found, skipping lint."
+          fi
+
+      - name: Test
+        if: ${{ inputs.run_tests }}
+        run: |
+          if [ -f package.json ]; then
+            npm test --if-present
+          else
+            echo "No package.json found, skipping tests."
+          fi
