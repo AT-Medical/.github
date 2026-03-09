@@ -1,0 +1,128 @@
+name: Security Checks
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - staging
+  pull_request:
+    branches:
+      - main
+      - develop
+      - staging
+  schedule:
+    - cron: '0 4 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  security-checks:
+    name: Basic Security Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check for sensitive files
+        shell: bash
+        run: |
+          set -e
+
+          echo "Checking for forbidden sensitive files..."
+
+          forbidden_files=(
+            ".env"
+            ".env.local"
+            ".env.production"
+            ".env.development"
+            "id_rsa"
+            "id_dsa"
+            "id_ed25519"
+            "id_ecdsa"
+            "*.p12"
+            "*.pfx"
+            "*.key"
+            "*.pem"
+          )
+
+          found=0
+
+          for pattern in "${forbidden_files[@]}"; do
+            if find . -type f -name "$pattern" | grep -q .; then
+              echo "Forbidden file found for pattern: $pattern"
+              find . -type f -name "$pattern"
+              found=1
+            fi
+          done
+
+          if [ "$found" -ne 0 ]; then
+            echo "Sensitive files detected."
+            exit 1
+          fi
+
+          echo "No forbidden sensitive files found."
+
+      - name: Check for possible secrets in tracked files
+        shell: bash
+        run: |
+          set -e
+
+          echo "Scanning repository for common secret patterns..."
+
+          if grep -RInE \
+            --exclude-dir=.git \
+            --exclude-dir=node_modules \
+            --exclude-dir=vendor \
+            --exclude="package-lock.json" \
+            --exclude="pnpm-lock.yaml" \
+            --exclude="yarn.lock" \
+            '(API_KEY|SECRET_KEY|ACCESS_KEY|PRIVATE_KEY|BEGIN RSA PRIVATE KEY|BEGIN OPENSSH PRIVATE KEY|AWS_SECRET_ACCESS_KEY|-----BEGIN PRIVATE KEY-----)' .; then
+            echo "Potential secret-like content found."
+            exit 1
+          fi
+
+          echo "No obvious secret-like content found."
+
+      - name: Check .gitignore exists
+        shell: bash
+        run: |
+          test -f .gitignore
+          echo ".gitignore exists."
+
+      - name: Validate GitHub workflow files
+        shell: bash
+        run: |
+          set -e
+
+          echo "Checking workflow directory..."
+          test -d .github/workflows
+
+          count=$(find .github/workflows -type f \( -name "*.yml" -o -name "*.yaml" \) | wc -l)
+          echo "Workflow file count: $count"
+
+          if [ "$count" -eq 0 ]; then
+            echo "No workflow files found."
+            exit 1
+          fi
+
+      - name: Check SECURITY.md exists
+        shell: bash
+        run: |
+          if [ -f SECURITY.md ] || [ -f .github/SECURITY.md ]; then
+            echo "SECURITY.md found."
+          else
+            echo "SECURITY.md missing."
+            exit 1
+          fi
+
+      - name: Check CODEOWNERS optional presence
+        shell: bash
+        run: |
+          if [ -f .github/CODEOWNERS ] || [ -f CODEOWNERS ] || [ -f docs/CODEOWNERS ]; then
+            echo "CODEOWNERS found."
+          else
+            echo "CODEOWNERS not found. This is allowed, but recommended."
+          fi
