@@ -92,6 +92,8 @@ When generating documentation:
 - keep explanations concise
 - include examples where useful
 - avoid redundant text
+- for bilingual README sections, always use 🇩🇪 before the German heading and 🇬🇧 before the English heading — never use plain text markers like "DE" or "GB"
+- German content must appear before English content in bilingual sections
 
 ---
 

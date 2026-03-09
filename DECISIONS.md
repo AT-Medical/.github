@@ -97,6 +97,29 @@ Reason:
 
 ---
 
+### 8. Bilingual README sections use national flag emojis
+Status: active  
+Scope: organization
+
+All bilingual section headings in README files and documentation templates must use national flag emojis as language indicators instead of plain text country codes.
+
+- German sections: 🇩🇪 (not "DE")
+- English sections: 🇬🇧 (not "GB")
+
+German content always appears first, followed by the English section.
+
+Reason:
+- visual clarity and immediate language recognition
+- consistent appearance across all repositories
+- avoids ambiguity between country codes and other abbreviations
+
+Implications:
+- all new README files must use 🇩🇪 and 🇬🇧 before bilingual headings
+- existing README files must be updated to replace any plain "DE" or "GB" text markers with the appropriate flag emoji
+- Copilot must not generate "DE" or "GB" as language markers in README headings
+
+---
+
 ## Future Decision Logging
 
 Future decisions should be added in a simple format:
