@@ -1,18 +1,21 @@
 name: CI
 
 on:
-  pull_request:
   push:
     branches:
       - main
+      - develop
+      - staging
 
-permissions:
-  contents: read
+  pull_request:
+    branches:
+      - main
+      - develop
+      - staging
+
 jobs:
   ci:
-    permissions:
-      contents: read
-    uses: AT-Medical/.github/.github/workflows/reusable-ci.yml@v1
+    uses: ./.github/workflows/reusable-ci.yml
     with:
       run_lint: true
       run_tests: true
