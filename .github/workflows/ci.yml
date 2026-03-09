@@ -8,6 +8,8 @@ on:
 
 jobs:
   ci:
+    permissions:
+      contents: read
     uses: AT-Medical/.github/.github/workflows/reusable-ci.yml@main
     with:
       run_lint: true
