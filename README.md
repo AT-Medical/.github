@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/AT-Medical/assets/main/logo.svg" width="180" alt="AT Medical GmbH Logo">
+  <img src="https://raw.githubusercontent.com/AT-Medical/ATMED-assets/main/assets/logos/svg/logo.svg" width="180" alt="AT Medical GmbH Logo">
 </p>
 
 <h1 align="center">AT Medical – GitHub Organization Infrastructure</h1>
