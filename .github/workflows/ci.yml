@@ -6,11 +6,12 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
   ci:
-    permissions:
-      contents: read
-    uses: AT-Medical/.github/.github/workflows/reusable-ci.yml@main
+    uses: ./.github/workflows/reusable-ci.yml
     with:
       run_lint: true
       run_tests: true
