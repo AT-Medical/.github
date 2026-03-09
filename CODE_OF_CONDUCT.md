@@ -33,7 +33,7 @@ Alle Meldungen werden vertraulich behandelt. Bei bestätigten Verstößen behäl
 
 ### Geltungsbereich
 
-Dieser Verhaltenskodex gilt für alle Repositories unter der GitHub-Organisation AT-Medical sowie für alle damit verbundenen Kommunikationskanäle.
+Dieser Verhaltenskodex gilt für alle Repositories unter der GitHub-Organisation AT Medical sowie für alle damit verbundenen Kommunikationskanäle.
 
 ---
 
@@ -70,7 +70,7 @@ All reports will be treated confidentially. In case of confirmed violations, AT 
 
 ### Scope
 
-This code of conduct applies to all repositories under the AT-Medical GitHub organization and all associated communication channels.
+This code of conduct applies to all repositories under the AT Medical GitHub organization and all associated communication channels.
 
 <hr>
 

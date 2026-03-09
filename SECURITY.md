@@ -47,7 +47,7 @@ Wenn eine Sicherheitslücke bestätigt wird:
 
 ### Geltungsbereich
 
-Diese Richtlinie gilt für alle Repositories unter der AT-Medical GitHub-Organisation, sofern ein Repository keine eigene Sicherheitsrichtlinie bereitstellt.
+Diese Richtlinie gilt für alle Repositories unter der AT Medical GitHub-Organisation, sofern ein Repository keine eigene Sicherheitsrichtlinie bereitstellt.
 
 ### Danke
 
@@ -102,7 +102,7 @@ When a vulnerability is confirmed:
 
 ### Scope
 
-This policy applies to all repositories under the AT-Medical GitHub organization unless a repository provides its own security policy.
+This policy applies to all repositories under the AT Medical GitHub organization unless a repository provides its own security policy.
 
 ### Thank You
 
