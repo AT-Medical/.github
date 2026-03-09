@@ -33,30 +33,73 @@ jobs:
           node-version: ${{ inputs.node_version }}
           cache: npm
 
-      - name: Install dependencies
+      - name: Check for package.json
+        id: package_check
+        shell: bash
+        run: |
+          if [ -f package.json ]; then
+            echo "has_package=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_package=false" >> "$GITHUB_OUTPUT"
+            echo "No package.json found. Skipping npm-based steps."
+          fi
+
+      - name: Check for package-lock.json
+        id: lock_check
+        if: steps.package_check.outputs.has_package == 'true'
+        shell: bash
         run: |
           if [ -f package-lock.json ]; then
-            npm ci
-          elif [ -f package.json ]; then
-            npm install
+            echo "has_lock=true" >> "$GITHUB_OUTPUT"
           else
-            echo "No package.json found, skipping dependency install."
+            echo "has_lock=false" >> "$GITHUB_OUTPUT"
+            echo "No package-lock.json found."
           fi
 
-      - name: Lint
-        if: ${{ inputs.run_lint }}
+      - name: Install dependencies
+        if: steps.package_check.outputs.has_package == 'true' && steps.lock_check.outputs.has_lock == 'true'
+        run: npm ci
+
+      - name: Install dependencies fallback
+        if: steps.package_check.outputs.has_package == 'true' && steps.lock_check.outputs.has_lock != 'true'
+        run: npm install
+
+      - name: Check whether lint script exists
+        id: lint_check
+        if: steps.package_check.outputs.has_package == 'true' && inputs.run_lint
+        shell: bash
         run: |
-          if [ -f package.json ]; then
-            npm run lint --if-present
+          if npm run | grep -qE '^[[:space:]]+lint'; then
+            echo "has_lint=true" >> "$GITHUB_OUTPUT"
           else
-            echo "No package.json found, skipping lint."
+            echo "has_lint=false" >> "$GITHUB_OUTPUT"
+            echo "No lint script found. Skipping lint."
           fi
 
-      - name: Test
-        if: ${{ inputs.run_tests }}
+      - name: Run lint
+        if: steps.package_check.outputs.has_package == 'true' && inputs.run_lint && steps.lint_check.outputs.has_lint == 'true'
+        run: npm run lint
+
+      - name: Check whether test script exists
+        id: test_check
+        if: steps.package_check.outputs.has_package == 'true' && inputs.run_tests
+        shell: bash
         run: |
-          if [ -f package.json ]; then
-            npm test --if-present
+          if npm run | grep -qE '^[[:space:]]+test'; then
+            echo "has_test=true" >> "$GITHUB_OUTPUT"
           else
-            echo "No package.json found, skipping tests."
+            echo "has_test=false" >> "$GITHUB_OUTPUT"
+            echo "No test script found. Skipping tests."
           fi
+
+      - name: Run tests
+        if: steps.package_check.outputs.has_package == 'true' && inputs.run_tests && steps.test_check.outputs.has_test == 'true'
+        run: npm test -- --ci
+
+      - name: Repository sanity check
+        shell: bash
+        run: |
+          echo "Running repository sanity checks..."
+          test -d .github
+          test -d .github/workflows
+          echo "Basic repository structure looks fine."
