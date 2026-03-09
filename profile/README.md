@@ -1,4 +1,44 @@
 <p align="center">
+  <img src="https://raw.githubusercontent.com/AT-Medical/assets/main/logo.png" width="220">
+</p>
+
+<h1 align="center">AT Medical Platform</h1>
+
+<p align="center">
+Digital Infrastructure for Medical Education, Research and Clinical Innovation
+</p>
+
+<p align="center">
+
+![Build](https://github.com/AT-Medical/REPOSITORY/actions/workflows/ci.yml/badge.svg)
+![Security](https://github.com/AT-Medical/REPOSITORY/actions/workflows/codeql.yml/badge.svg)
+![License](https://img.shields.io/github/license/AT-Medical/REPOSITORY)
+![Version](https://img.shields.io/github/v/release/AT-Medical/REPOSITORY)
+![Last Commit](https://img.shields.io/github/last-commit/AT-Medical/REPOSITORY)
+
+</p>
+
+<p align="center">
+
+![Coverage](https://img.shields.io/codecov/c/github/AT-Medical/REPOSITORY)
+![Dependencies](https://img.shields.io/librariesio/github/AT-Medical/REPOSITORY)
+![Docker](https://img.shields.io/badge/container-ghcr.io-blue)
+![Docs](https://img.shields.io/badge/docs-online-brightgreen)
+
+</p>
+
+---
+
+## Overview
+
+The AT Medical Platform provides a modular infrastructure for:
+
+- medical education platforms  
+- clinical decision support tools  
+- AI-supported research environments  
+- secure healthcare data processing
+
+<p align="center">
 <img src="https://www.at-medical.de/assets/ci/logo.png" height="120">
 </p>
 
