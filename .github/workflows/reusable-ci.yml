@@ -103,3 +103,14 @@ jobs:
           test -d .github
           test -d .github/workflows
           echo "Basic repository structure looks fine."
+
+      - name: Run repository structure tests
+        if: inputs.run_tests
+        shell: bash
+        run: |
+          if [ -f tests/repo-check.sh ]; then
+            echo "Running tests/repo-check.sh..."
+            bash tests/repo-check.sh
+          else
+            echo "No repo-check.sh found. Skipping."
+          fi

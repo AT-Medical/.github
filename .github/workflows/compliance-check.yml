@@ -1,0 +1,108 @@
+name: Compliance Check
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - staging
+  pull_request:
+    branches:
+      - main
+      - develop
+      - staging
+  schedule:
+    # Run weekly on Mondays at 06:00 UTC
+    - cron: "0 6 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  license-check:
+    name: License Validation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check LICENSE file exists
+        shell: bash
+        run: |
+          set -e
+          if [ -f LICENSE ] || [ -f LICENSE.md ] || [ -f LICENSE.txt ]; then
+            echo "LICENSE file found."
+          else
+            echo "LICENSE file missing. All repositories must include a license."
+            exit 1
+          fi
+
+      - name: Check LICENSE is non-empty
+        shell: bash
+        run: |
+          set -e
+          if [ -s LICENSE ] || [ -s LICENSE.md ] || [ -s LICENSE.txt ]; then
+            echo "LICENSE file is non-empty."
+          else
+            echo "LICENSE file is empty."
+            exit 1
+          fi
+
+  governance-check:
+    name: Governance File Compliance
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify required governance files
+        shell: bash
+        run: |
+          set -e
+          missing=0
+
+          for f in README.md SECURITY.md CONTRIBUTING.md CODE_OF_CONDUCT.md LICENSE; do
+            if [ -f "$f" ]; then
+              echo "FOUND: $f"
+            else
+              echo "MISSING: $f"
+              missing=$((missing + 1))
+            fi
+          done
+
+          if [ "$missing" -gt 0 ]; then
+            echo "$missing required governance file(s) are missing."
+            exit 1
+          fi
+          echo "All required governance files are present."
+
+      - name: Check CODEOWNERS
+        shell: bash
+        run: |
+          set -e
+          if [ -f CODEOWNERS ] || [ -f .github/CODEOWNERS ] || [ -f docs/CODEOWNERS ]; then
+            echo "CODEOWNERS found."
+          else
+            echo "CODEOWNERS not found. CODEOWNERS is required for reviewer assignment."
+            exit 1
+          fi
+
+  dependency-license-review:
+    name: Dependency License Review
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Dependency Review (license and vulnerability)
+        uses: actions/dependency-review-action@v4
+        with:
+          fail-on-severity: high
