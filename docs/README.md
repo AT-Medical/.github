@@ -8,6 +8,16 @@ This directory contains supplementary documentation for the AT Medical GitHub or
 |---|---|
 | *(this index)* | Documentation overview |
 
+## Environment Documentation
+
+Environment-specific standards and expectations are maintained in [`environments/`](../environments/):
+
+| File | Purpose |
+|---|---|
+| [`environments/development.md`](../environments/development.md) | Development environment standards |
+| [`environments/staging.md`](../environments/staging.md) | Staging environment standards |
+| [`environments/production.md`](../environments/production.md) | Production environment standards |
+
 ## Primary Documentation
 
 The main documentation for this repository lives at the root level:
