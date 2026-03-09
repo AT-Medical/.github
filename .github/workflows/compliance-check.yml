@@ -85,7 +85,7 @@ jobs:
           if [ -f CODEOWNERS ] || [ -f .github/CODEOWNERS ] || [ -f docs/CODEOWNERS ]; then
             echo "CODEOWNERS found."
           else
-            echo "CODEOWNERS not found. Adding CODEOWNERS is strongly recommended."
+            echo "CODEOWNERS not found. CODEOWNERS is required for reviewer assignment."
             exit 1
           fi
 
