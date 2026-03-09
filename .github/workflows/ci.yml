@@ -1,0 +1,15 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  ci:
+    uses: AT-Medical/.github/.github/workflows/reusable-ci.yml@main
+    with:
+      run_lint: true
+      run_tests: true
+      node_version: "20"
