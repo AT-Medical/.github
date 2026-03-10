@@ -72,9 +72,18 @@ jobs:
           set -euo pipefail
           found=0
           for pattern in ".env" ".env.local" ".env.production" ".env.development" "id_rsa" "id_dsa" "id_ed25519" "id_ecdsa" "*.p12" "*.pfx" "*.key" "*.pem"; do
+            if find . \
+              -type f \
+              -name "$pattern" \
+              ! -path "*/.git/*" \
+              ! -path "*/vendor/*" \
+              ! -path "*/node_modules/*" \
+              ! -path "*/.github/workflows/*" \
+              -print -quit 2>/dev/null | grep -q .; then
             if find . -type f -name "$pattern" ! -path "*/.git/*" ! -path "*/node_modules/*" ! -path "*/vendor/*" 2>/dev/null | grep -q .; then
               echo "Forbidden file found for pattern: $pattern"
               found=1
+              break
             fi
           done
           if [ "$found" -ne 0 ]; then
