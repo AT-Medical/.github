@@ -27,12 +27,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ inputs.node_version }}
-          cache: npm
-
       - name: Check for package.json
         id: package_check
         shell: bash
@@ -55,6 +49,13 @@ jobs:
             echo "has_lock=false" >> "$GITHUB_OUTPUT"
             echo "No package-lock.json found."
           fi
+
+      - name: Setup Node.js
+        if: steps.package_check.outputs.has_package == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node_version }}
+          cache: ${{ steps.lock_check.outputs.has_lock == 'true' && 'npm' || '' }}
 
       - name: Install dependencies
         if: steps.package_check.outputs.has_package == 'true' && steps.lock_check.outputs.has_lock == 'true'

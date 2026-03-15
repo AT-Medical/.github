@@ -11,37 +11,33 @@ jobs:
     permissions: {}
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Repository overview
+        shell: bash
         run: |
+          set -euo pipefail
           echo "Repo Guard basic check running"
 
           echo "Listing repository files:"
           ls -la
 
           echo "Checking key files..."
+          missing=0
 
-          if [ -f README.md ]; then
-            echo "README.md found"
-          else
-            echo "README.md missing"
-          fi
+          for f in README.md SECURITY.md CONTRIBUTING.md CODEOWNERS; do
+            if [ -f "$f" ]; then
+              echo "$f found"
+            else
+              echo "$f missing"
+              missing=$((missing + 1))
+            fi
+          done
 
-          if [ -f SECURITY.md ]; then
-            echo "SECURITY.md found"
-          else
-            echo "SECURITY.md missing"
-          fi
-
-          if [ -f CONTRIBUTING.md ]; then
-            echo "CONTRIBUTING.md found"
-          else
-            echo "CONTRIBUTING.md missing"
-          fi
-
-          if [ -f CODEOWNERS ]; then
-            echo "CODEOWNERS found"
-          else
-            echo "CODEOWNERS missing"
+          if [ "$missing" -gt 0 ]; then
+            echo "$missing required file(s) missing."
+            exit 1
           fi
 
           echo "Basic repo structure check complete."
