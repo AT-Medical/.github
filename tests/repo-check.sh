@@ -68,14 +68,20 @@ run_test "docs/deployment/deployment.md exists"       "$(file_exists docs/deploy
 
 # YAML validity check for workflow files (requires python3 with pyyaml)
 if command -v python3 > /dev/null 2>&1 && python3 -c "import yaml" 2>/dev/null; then
-  for wf in "$REPO_ROOT"/.github/workflows/*.yml; do
+  while IFS= read -r -d '' wf; do
     wf_name="$(basename "$wf")"
-    if python3 -c "import sys, yaml; yaml.safe_load(open('$wf'))" 2>/dev/null; then
+    if python3 -c "
+import sys, yaml
+try:
+    yaml.safe_load(open(sys.argv[1]))
+except Exception as e:
+    sys.exit(1)
+" "$wf" 2>/dev/null; then
       run_test "$wf_name is valid YAML" "0"
     else
       run_test "$wf_name is valid YAML" "1"
     fi
-  done
+  done < <(find "$REPO_ROOT/.github/workflows" -maxdepth 1 -name "*.yml" -print0 2>/dev/null)
 else
   echo "SKIP: python3 or pyyaml not available – skipping YAML validation"
 fi

@@ -80,7 +80,6 @@ jobs:
               ! -path "*/node_modules/*" \
               ! -path "*/.github/workflows/*" \
               -print -quit 2>/dev/null | grep -q .; then
-            if find . -type f -name "$pattern" ! -path "*/.git/*" ! -path "*/node_modules/*" ! -path "*/vendor/*" 2>/dev/null | grep -q .; then
               echo "Forbidden file found for pattern: $pattern"
               found=1
               break
