@@ -1,0 +1,40 @@
+# AT Medical – Copilot Repository Purpose Configuration
+# Describes the intent and boundaries of this repository for AI-assisted development.
+
+repository:
+  name: ".github"
+  role: governance
+  description: >
+    This is the AT Medical organization-wide default governance repository.
+    It contains community health files, issue/PR templates, reusable GitHub
+    Actions workflows, and organizational standards that are inherited by all
+    repositories in the AT-Medical GitHub organization.
+
+copilot:
+  context: >
+    When assisting in this repository, Copilot should treat all files as
+    organization-wide standards. Changes here may affect every repository
+    in the AT-Medical organization. Apply extra caution and follow the
+    AT Medical coding guidelines strictly.
+
+  guidelines:
+    - Only perform explicitly requested changes.
+    - Prefer clear, minimal implementations over complex abstractions.
+    - Never commit secrets, tokens, API keys, or credentials.
+    - Use 🇩🇪 and 🇬🇧 flag emojis for bilingual section headings (German first).
+    - Follow the AT Medical naming convention: "AT Medical" in prose, "AT-Medical" for org handles.
+    - All documentation should be bilingual (German first, then English) where applicable.
+
+  out_of_scope:
+    - Product or feature development
+    - Application business logic
+    - Database schemas or migrations
+
+  primary_team: "AT-Medical/devops-team"
+  secondary_teams:
+    - "AT-Medical/admin-team"
+    - "AT-Medical/security-team"
+    - "AT-Medical/legal-team"
+
+version: "0.9.0"
+date: "2026-03-16"

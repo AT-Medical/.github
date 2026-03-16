@@ -1,0 +1,42 @@
+# AT Medical – Repository Profile
+# This file describes the organizational role and metadata of the .github repository.
+
+repository:
+  name: ".github"
+  organization: "AT-Medical"
+  type: governance
+  visibility: public
+  status: active
+
+  purpose: >
+    Central organization-level community health, template, and default governance
+    repository for the AT Medical GitHub organization. Provides default community
+    health files, issue/PR templates, reusable workflows, and organization-wide
+    standards that apply to all repositories in the AT-Medical organization.
+
+  domains:
+    - governance
+    - templates
+    - organization
+    - security
+    - compliance
+    - documentation
+
+  teams:
+    primary: AT-Medical/devops-team
+    secondary:
+      - AT-Medical/admin-team
+      - AT-Medical/security-team
+      - AT-Medical/legal-team
+
+  deploy_targets: []
+  customer_facing: false
+
+  contacts:
+    security: security@at-medical.de
+    conduct: conduct@at-medical.de
+    general: Info@at-medical.de
+
+version: "0.9.0"
+date: "2026-03-16"
+verified_by: "AT-Medical/devops-team"

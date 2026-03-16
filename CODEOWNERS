@@ -1,1 +1,21 @@
-* @ATMedicalGmbH
+# CODEOWNERS – AT Medical .github Repository
+# Primary ownership: AT-Medical/devops-team
+# All files default to the DevOps team.
+
+* @AT-Medical/devops-team
+
+# Security-sensitive files – also require Security team review
+SECURITY.md @AT-Medical/devops-team @AT-Medical/security-team
+.gitleaks.toml @AT-Medical/devops-team @AT-Medical/security-team
+.github/workflows/security*.yml @AT-Medical/devops-team @AT-Medical/security-team
+.github/workflows/codeql.yml @AT-Medical/devops-team @AT-Medical/security-team
+
+# Legal/governance files – also require Legal and Admin team review
+LICENSE @AT-Medical/devops-team @AT-Medical/legal-team
+CODE_OF_CONDUCT.md @AT-Medical/devops-team @AT-Medical/legal-team
+CONTRIBUTING.md @AT-Medical/devops-team @AT-Medical/admin-team
+.github/workflows/compliance-check.yml @AT-Medical/devops-team @AT-Medical/admin-team
+
+# Metadata and configuration
+metadata/ @AT-Medical/devops-team @AT-Medical/admin-team
+configs/ @AT-Medical/devops-team @AT-Medical/admin-team
