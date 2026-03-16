@@ -116,6 +116,30 @@ This file follows the [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) f
 
 ---
 
+## [0.9.0] – 2026-03-16 – Enterprise Standardization
+
+### Added
+
+- `metadata/repository-profile.yml` – Repository profile and organizational metadata
+- `configs/automation/copilot/repository-purpose.yml` – Copilot context and repository purpose configuration
+- `.github/ISSUE_TEMPLATE/feature_request.yml` – Feature request issue template
+- `.github/ISSUE_TEMPLATE/governance_feedback.yml` – Governance feedback issue template
+- `.github/PULL_REQUEST_TEMPLATE/` – Multiple pull request templates (default, governance, security)
+- `.github/DISCUSSION_TEMPLATE/` – Discussion templates for governance and general topics
+- `.github/workflows/doc-consistency-check.yml` – Documentation consistency validation workflow
+- `Abschlussbericht_dot-github.md` – Final change summary and recommendations
+
+### Changed
+
+- `README.md` – Added governance, org-standard, status, and team-ownership badges; added version/verification block
+- `SECURITY.md` – Fixed contact email; added version/verification block
+- `CONTRIBUTING.md` – Added version/verification block
+- `CODE_OF_CONDUCT.md` – Added version/verification block
+- `CODEOWNERS` – Expanded with primary and secondary team assignments
+- `tests/repo-check.sh` – Updated to validate new required files
+
+---
+
 ## [1.0.0] – Initial Structure
 
 ### Added
