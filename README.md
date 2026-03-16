@@ -49,6 +49,12 @@ This repository is therefore not intended as a product or domain repository, but
 
 <hr>
 
+<blockquote style="border-left: 3px solid #ccc; padding-left: 12px; color: #666;">
+<sub>
+Version: 0.9.0 &nbsp;|&nbsp; Date: 2026-03-16 &nbsp;|&nbsp; Status: verified &nbsp;|&nbsp; Repository: .github
+</sub>
+</blockquote>
+
 <p align="center">
 <sub>
 © Copyright 2017 - 2026 | <strong>AT Medical GmbH®</strong><br>

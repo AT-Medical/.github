@@ -1,0 +1,73 @@
+---
+# AT Medical Enterprise File Tag Manifest
+# Maps repository files and directories to their assigned tag sets.
+# Tags are inherited from metadata/repository-profile.yml where not explicitly set.
+
+defaults:
+  domain: platform
+  repo-type: governance
+  team-owner: atmed-platform
+  security-class: public
+  visibility: public
+  lifecycle-state: active
+
+files:
+  README.md:
+    review-level: standard
+    maintenance-level: high
+
+  SECURITY.md:
+    review-level: mandatory-security
+    security-class: public
+
+  CONTRIBUTING.md:
+    review-level: standard
+
+  CODE_OF_CONDUCT.md:
+    review-level: standard
+
+  LICENSE:
+    review-level: minimal
+
+  CHANGELOG.md:
+    review-level: minimal
+    maintenance-level: high
+
+  DECISIONS.md:
+    review-level: extended
+
+  ARCHITECTURE.md:
+    review-level: extended
+
+  REPOSITORY_MAP.md:
+    review-level: standard
+
+  CODEOWNERS:
+    review-level: mandatory-security
+
+  ".github/dependabot.yml":
+    review-level: standard
+
+directories:
+  ".github/workflows":
+    review-level: extended
+    maintenance-level: high
+
+  metadata:
+    review-level: standard
+
+  docs:
+    review-level: minimal
+
+  scripts:
+    review-level: extended
+
+  templates:
+    review-level: minimal
+
+  configs:
+    review-level: standard
+
+  artifacts:
+    review-level: mandatory-security
+    security-class: internal

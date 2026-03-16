@@ -10,6 +10,44 @@ This file follows the [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) f
 
 ### Added
 
+- `metadata/repository-profile.yml` – canonical repository configuration for workflows and tagging
+- `metadata/tags/taxonomy.yml` – enterprise tag taxonomy with all valid dimensions and values
+- `metadata/tags/rules.yml` – tag validation rules (mandatory/optional dimensions)
+- `metadata/tags/examples.yml` – tagging usage examples for all repository types
+- `metadata/tags/file-tags.yml` – file-level tag manifest for this repository
+- `.github/workflows/ci-validation.yml` – structure, metadata, corporate identity and workflow validation
+- `.github/workflows/governance-check.yml` – governance file and metadata health checks
+- `.github/workflows/tag-validation.yml` – automated tag metadata validation
+- `.github/workflows/file-tagging.yml` – file tag presence and consistency checks on push/PR
+- `.github/workflows/dependency-check.yml` – dependency license review and action version pinning
+- `.github/workflows/cleanup-weekly.yml` – weekly stale PR cleanup and artifact directory status
+- `.github/workflows/repository-selfcheck.yml` – scheduled repository health self-check
+- `scripts/validate/repository-selfcheck.sh` – comprehensive local repository self-check script
+- `docs/governance/README.md` – governance documentation index
+- `docs/operations/README.md` – operations documentation index
+- `templates/README.md` – template directory index
+- `status/README.md` – status directory index
+- `artifacts/README.md` – artifact management directory index
+- `configs/automation/` – automation configuration directory structure
+- `artifacts/incoming/`, `artifacts/staged/`, `artifacts/releases/` – artifact integration directories
+
+### Changed
+
+- `.github/dependabot.yml` – added `compatibility` label and `pip` / `composer` ecosystem support
+- `scripts/README.md` – updated to reflect new validate/ structure and selfcheck script
+
+### Governance
+
+- Enterprise directory structure aligned with ATMED-infrastructure architecture
+- Global tagging system implemented across metadata/
+- CI/CD governance workflows cover structure, metadata, tags, dependencies, and self-check
+
+---
+
+## [Unreleased – Previous]
+
+### Added
+
 - `docs/` directory for organizational documentation index
 - `scripts/` directory for placeholder scripts
 - `CHANGELOG.md` for version and change tracking

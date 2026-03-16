@@ -1,0 +1,93 @@
+---
+# AT Medical Enterprise Tag Taxonomy
+# Defines all valid tagging dimensions and their permitted values.
+
+dimensions:
+  domain:
+    description: "Functional domain of the repository or file."
+    values:
+      - platform
+      - infrastructure
+      - web
+      - tools
+      - research
+      - documentation
+      - academy
+      - auth
+      - sandbox
+      - governance
+      - devops
+
+  repo-type:
+    description: "Repository classification type."
+    values:
+      - infrastructure
+      - platform
+      - web
+      - tools
+      - research
+      - documentation
+      - academy
+      - auth
+      - sandbox
+      - governance
+      - devops
+
+  team-owner:
+    description: "Team responsible for this repository or file."
+    values:
+      - atmed-platform
+      - atmed-devops
+      - atmed-security
+      - atmed-web
+      - atmed-academy
+      - atmed-research
+
+  deploy-target:
+    description: "Target deployment environment."
+    values:
+      - vps
+      - webspace
+      - cloudflare-r2
+      - github-actions
+      - none
+
+  security-class:
+    description: "Security classification level."
+    values:
+      - public
+      - internal
+      - confidential
+      - restricted
+
+  visibility:
+    description: "Repository visibility."
+    values:
+      - public
+      - private
+      - internal
+
+  review-level:
+    description: "Required review depth for changes."
+    values:
+      - minimal
+      - standard
+      - extended
+      - mandatory-security
+
+  lifecycle-state:
+    description: "Current lifecycle state of the repository."
+    values:
+      - active
+      - maintenance
+      - archived
+      - deprecated
+      - experimental
+
+  maintenance-level:
+    description: "Expected maintenance cadence."
+    values:
+      - high
+      - medium
+      - low
+      - none

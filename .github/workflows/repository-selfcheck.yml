@@ -1,0 +1,34 @@
+name: Repository Self-Check
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  selfcheck:
+    name: Repository Health Self-Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        shell: bash
+        run: |
+          python3 -c "import yaml" 2>/dev/null || pip install --quiet pyyaml
+
+      - name: Run repository self-check script
+        shell: bash
+        run: |
+          chmod +x scripts/validate/repository-selfcheck.sh
+          bash scripts/validate/repository-selfcheck.sh

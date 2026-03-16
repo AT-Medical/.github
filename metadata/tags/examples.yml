@@ -1,0 +1,64 @@
+---
+# AT Medical Enterprise Tag Examples
+# Illustrates correct tagging usage for different repository and file types.
+
+examples:
+  - label: "Governance repository (this repository)"
+    tags:
+      domain: platform
+      repo-type: governance
+      team-owner: atmed-platform
+      deploy-target: none
+      security-class: public
+      visibility: public
+      review-level: standard
+      lifecycle-state: active
+      maintenance-level: high
+
+  - label: "Infrastructure repository"
+    tags:
+      domain: infrastructure
+      repo-type: infrastructure
+      team-owner: atmed-devops
+      deploy-target: vps
+      security-class: confidential
+      visibility: private
+      review-level: mandatory-security
+      lifecycle-state: active
+      maintenance-level: high
+
+  - label: "Web platform repository"
+    tags:
+      domain: web
+      repo-type: web
+      team-owner: atmed-web
+      deploy-target: webspace
+      security-class: internal
+      visibility: private
+      review-level: standard
+      lifecycle-state: active
+      maintenance-level: medium
+
+  - label: "Academy / documentation repository"
+    tags:
+      domain: academy
+      repo-type: academy
+      team-owner: atmed-academy
+      deploy-target: none
+      security-class: public
+      visibility: public
+      review-level: minimal
+      lifecycle-state: active
+      maintenance-level: low
+
+  - label: "Research sandbox"
+    tags:
+      domain: research
+      repo-type: sandbox
+      team-owner: atmed-research
+      deploy-target: none
+      security-class: internal
+      visibility: private
+      review-level: minimal
+      lifecycle-state: experimental
+      maintenance-level: low

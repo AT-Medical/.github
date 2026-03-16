@@ -1,0 +1,16 @@
+repository_name: ".github"
+repository_type: "governance"
+repository_domain: "platform"
+visibility_class: "public"
+primary_team: "atmed-platform"
+secondary_teams:
+  - "atmed-devops"
+  - "atmed-security"
+deploy_targets: []
+status_relevance: "critical"
+customer_facing: false
+sensitivity_level: "low"
+artifact_intake_allowed: false
+vps_import_allowed: false
+webspace_import_allowed: false
+r2_import_allowed: false

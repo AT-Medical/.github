@@ -1,0 +1,101 @@
+name: Governance Check
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+  schedule:
+    - cron: "0 5 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  governance-files:
+    name: Governance File Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify governance documents
+        shell: bash
+        run: |
+          set -e
+          missing=0
+
+          for f in README.md SECURITY.md CONTRIBUTING.md CODE_OF_CONDUCT.md LICENSE CHANGELOG.md CODEOWNERS; do
+            if [ -f "$f" ] && [ -s "$f" ]; then
+              echo "FOUND (non-empty): $f"
+            elif [ -f "$f" ]; then
+              echo "EMPTY: $f"
+              missing=$((missing + 1))
+            else
+              echo "MISSING: $f"
+              missing=$((missing + 1))
+            fi
+          done
+
+          if [ "$missing" -gt 0 ]; then
+            echo "$missing governance file(s) are missing or empty."
+            exit 1
+          fi
+          echo "All governance files are present and non-empty."
+
+  metadata-check:
+    name: Metadata Presence Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify metadata profile
+        shell: bash
+        run: |
+          set -e
+          if [ -f metadata/repository-profile.yml ] && [ -s metadata/repository-profile.yml ]; then
+            echo "metadata/repository-profile.yml exists and is non-empty."
+          else
+            echo "metadata/repository-profile.yml is missing or empty."
+            exit 1
+          fi
+
+      - name: Validate metadata YAML
+        shell: bash
+        run: |
+          set -e
+          python3 -c "import yaml" 2>/dev/null || pip install --quiet pyyaml
+          python3 -c "
+          import yaml, sys
+          with open('metadata/repository-profile.yml') as f:
+              data = yaml.safe_load(f)
+          required = ['repository_name', 'repository_type', 'visibility_class', 'primary_team', 'sensitivity_level']
+          missing = [k for k in required if k not in data]
+          if missing:
+              print(f'Missing required fields: {missing}')
+              sys.exit(1)
+          print('metadata/repository-profile.yml is valid.')
+          "
+
+  decisions-log:
+    name: Decisions Log Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify DECISIONS.md exists and has entries
+        shell: bash
+        run: |
+          set -e
+          if [ -f DECISIONS.md ] && [ -s DECISIONS.md ]; then
+            echo "DECISIONS.md is present and non-empty."
+          else
+            echo "DECISIONS.md is missing or empty."
+            exit 1
+          fi
