@@ -64,6 +64,8 @@ This Code of Conduct is adapted from the [Contributor Covenant](https://www.cont
 
 ---
 
+> **Version:** 0.9.0 | **Date:** 2026-03-16 | **Status:** verified | **Repository:** .github
+
 <p align="center">
 <sub>
 © Copyright 2017 - 2026 | <strong>AT Medical GmbH®</strong><br>

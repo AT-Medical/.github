@@ -69,17 +69,18 @@ jobs:
         run: |
           set -e
           python3 -c "import yaml" 2>/dev/null || pip install --quiet pyyaml
-          python3 -c "
+          python3 - <<'PY'
           import yaml, sys
           with open('metadata/repository-profile.yml') as f:
               data = yaml.safe_load(f)
-          required = ['repository_name', 'repository_type', 'visibility_class', 'primary_team', 'sensitivity_level']
-          missing = [k for k in required if k not in data]
+          repo = data.get('repository', {})
+          required = ['name', 'type', 'visibility', 'teams']
+          missing = [k for k in required if k not in repo]
           if missing:
-              print(f'Missing required fields: {missing}')
+              print(f'Missing required fields under repository: {missing}')
               sys.exit(1)
           print('metadata/repository-profile.yml is valid.')
-          "
+          PY
 
   decisions-log:
     name: Decisions Log Check

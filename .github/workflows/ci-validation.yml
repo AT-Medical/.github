@@ -171,14 +171,7 @@ jobs:
           error=0
 
           for wf in .github/workflows/*.yml; do
-            if python3 -c "
-          import sys, yaml
-          try:
-              yaml.safe_load(open(sys.argv[1]))
-          except Exception as e:
-              print(f'INVALID YAML in {sys.argv[1]}: {e}')
-              sys.exit(1)
-          " "$wf" 2>/dev/null; then
+            if python3 -c "import sys, yaml; yaml.safe_load(open(sys.argv[1]))" "$wf" 2>/dev/null; then
               echo "OK: $wf"
             else
               echo "INVALID: $wf"

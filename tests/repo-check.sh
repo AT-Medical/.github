@@ -46,19 +46,25 @@ run_test "CODE_OF_CONDUCT.md exists"  "$(file_exists CODE_OF_CONDUCT.md)"
 run_test "LICENSE exists"             "$(file_exists LICENSE)"
 run_test "CODEOWNERS exists"          "$(file_exists CODEOWNERS)"
 run_test ".gitignore exists"          "$(file_exists .gitignore)"
+run_test "CHANGELOG.md exists"        "$(file_exists CHANGELOG.md)"
+
+# Metadata and configuration
+run_test "metadata/repository-profile.yml exists"                    "$(file_exists metadata/repository-profile.yml)"
+run_test "configs/automation/copilot/repository-purpose.yml exists"  "$(file_exists configs/automation/copilot/repository-purpose.yml)"
 
 # Workflow files
-run_test ".github/workflows/ci.yml exists"               "$(file_exists .github/workflows/ci.yml)"
-run_test ".github/workflows/security-scan.yml exists"    "$(file_exists .github/workflows/security-scan.yml)"
-run_test ".github/workflows/compliance-check.yml exists" "$(file_exists .github/workflows/compliance-check.yml)"
-run_test ".github/workflows/reusable-ci.yml exists"      "$(file_exists .github/workflows/reusable-ci.yml)"
-run_test ".github/workflows/ci-validation.yml exists"    "$(file_exists .github/workflows/ci-validation.yml)"
-run_test ".github/workflows/governance-check.yml exists" "$(file_exists .github/workflows/governance-check.yml)"
-run_test ".github/workflows/tag-validation.yml exists"   "$(file_exists .github/workflows/tag-validation.yml)"
-run_test ".github/workflows/file-tagging.yml exists"     "$(file_exists .github/workflows/file-tagging.yml)"
-run_test ".github/workflows/dependency-check.yml exists" "$(file_exists .github/workflows/dependency-check.yml)"
-run_test ".github/workflows/cleanup-weekly.yml exists"   "$(file_exists .github/workflows/cleanup-weekly.yml)"
-run_test ".github/workflows/repository-selfcheck.yml exists" "$(file_exists .github/workflows/repository-selfcheck.yml)"
+run_test ".github/workflows/ci.yml exists"                    "$(file_exists .github/workflows/ci.yml)"
+run_test ".github/workflows/security-scan.yml exists"         "$(file_exists .github/workflows/security-scan.yml)"
+run_test ".github/workflows/compliance-check.yml exists"      "$(file_exists .github/workflows/compliance-check.yml)"
+run_test ".github/workflows/reusable-ci.yml exists"           "$(file_exists .github/workflows/reusable-ci.yml)"
+run_test ".github/workflows/doc-consistency-check.yml exists" "$(file_exists .github/workflows/doc-consistency-check.yml)"
+run_test ".github/workflows/ci-validation.yml exists"         "$(file_exists .github/workflows/ci-validation.yml)"
+run_test ".github/workflows/governance-check.yml exists"      "$(file_exists .github/workflows/governance-check.yml)"
+run_test ".github/workflows/tag-validation.yml exists"        "$(file_exists .github/workflows/tag-validation.yml)"
+run_test ".github/workflows/file-tagging.yml exists"          "$(file_exists .github/workflows/file-tagging.yml)"
+run_test ".github/workflows/dependency-check.yml exists"      "$(file_exists .github/workflows/dependency-check.yml)"
+run_test ".github/workflows/cleanup-weekly.yml exists"        "$(file_exists .github/workflows/cleanup-weekly.yml)"
+run_test ".github/workflows/repository-selfcheck.yml exists"  "$(file_exists .github/workflows/repository-selfcheck.yml)"
 
 # Directories
 run_test "docs/ directory exists"              "$(dir_exists docs)"
@@ -90,6 +96,11 @@ run_test "metadata/tags/file-tags.yml exists"         "$(file_exists metadata/ta
 
 # Scripts
 run_test "scripts/validate/repository-selfcheck.sh exists" "$(file_exists scripts/validate/repository-selfcheck.sh)"
+
+# Issue templates
+run_test ".github/ISSUE_TEMPLATE/bug_report.yml exists"          "$(file_exists .github/ISSUE_TEMPLATE/bug_report.yml)"
+run_test ".github/ISSUE_TEMPLATE/feature_request.yml exists"     "$(file_exists .github/ISSUE_TEMPLATE/feature_request.yml)"
+run_test ".github/ISSUE_TEMPLATE/governance_feedback.yml exists" "$(file_exists .github/ISSUE_TEMPLATE/governance_feedback.yml)"
 
 # YAML validity check for workflow files (requires python3 with pyyaml)
 if command -v python3 > /dev/null 2>&1 && python3 -c "import yaml" 2>/dev/null; then

@@ -15,6 +15,10 @@
   <img src="https://img.shields.io/github/forks/AT-Medical/.github?style=flat" alt="Forks">
   <img src="https://img.shields.io/badge/visibility-public-1f883d" alt="Visibility Public">
   <img src="https://img.shields.io/badge/scope-organization-6f42c1" alt="Scope Organization">
+  <img src="https://img.shields.io/badge/type-governance-0075ca" alt="Type Governance">
+  <img src="https://img.shields.io/badge/org--standard-true-brightgreen" alt="Org Standard">
+  <img src="https://img.shields.io/badge/status-verified-brightgreen" alt="Status Verified">
+  <img src="https://img.shields.io/badge/team-devops--team-blueviolet" alt="Team DevOps">
 </p>
 
 ## 🇩🇪 Beschreibung
@@ -46,6 +50,10 @@ Typical contents of this repository include:
 - organizational standards for governance and quality assurance
 
 This repository is therefore not intended as a product or domain repository, but as the central control and standardization layer for the entire GitHub organization.
+
+---
+
+> **Version:** 0.9.0 | **Date:** 2026-03-16 | **Status:** verified | **Repository:** .github
 
 <hr>
 

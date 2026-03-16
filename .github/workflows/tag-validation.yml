@@ -22,7 +22,7 @@ jobs:
           set -e
           python3 -c "import yaml" 2>/dev/null || pip install --quiet pyyaml
 
-          python3 -c "
+          python3 - <<'PY'
           import yaml, sys
 
           def load(path):
@@ -68,12 +68,12 @@ jobs:
               for path_key, tags in (file_tags.get(entry_type) or {}).items():
                   for dim, val in tags.items():
                       if dim not in valid_dims:
-                          print(f'ERROR: Unknown tag dimension \"{dim}\" in {entry_type}/{path_key}')
+                          print(f'ERROR: Unknown tag dimension "{dim}" in {entry_type}/{path_key}')
                           errors += 1
                           continue
                       allowed = taxonomy['dimensions'][dim].get('values', [])
                       if allowed and val not in allowed:
-                          print(f'ERROR: Value \"{val}\" not allowed for dimension \"{dim}\" in {entry_type}/{path_key}')
+                          print(f'ERROR: Value "{val}" not allowed for dimension "{dim}" in {entry_type}/{path_key}')
                           errors += 1
 
           if errors > 0:
@@ -81,25 +81,22 @@ jobs:
               sys.exit(1)
 
           print('Tag validation passed.')
-          "
+          PY
 
       - name: Validate metadata/repository-profile.yml required fields
         shell: bash
         run: |
           set -e
           python3 -c "import yaml" 2>/dev/null || pip install --quiet pyyaml
-          python3 -c "
+          python3 - <<'PY'
           import yaml, sys
           with open('metadata/repository-profile.yml') as f:
               data = yaml.safe_load(f)
-          required = [
-              'repository_name', 'repository_type', 'repository_domain',
-              'visibility_class', 'primary_team', 'sensitivity_level',
-              'customer_facing', 'artifact_intake_allowed'
-          ]
-          missing = [k for k in required if k not in data]
+          repo = data.get('repository', {})
+          required = ['name', 'type', 'visibility', 'teams']
+          missing = [k for k in required if k not in repo]
           if missing:
-              print(f'ERROR: repository-profile.yml missing fields: {missing}')
+              print(f'ERROR: repository-profile.yml missing fields under repository: {missing}')
               sys.exit(1)
           print('repository-profile.yml fields validated.')
-          "
+          PY

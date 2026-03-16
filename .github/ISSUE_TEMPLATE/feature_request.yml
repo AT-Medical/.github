@@ -1,0 +1,59 @@
+name: Feature request
+description: Suggest a new feature or improvement for organization-wide templates and governance
+title: "[FEAT] "
+labels: enhancement
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting an improvement to the AT Medical organization standards.
+        Please fill in as much detail as possible.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or motivation
+      description: What problem does this feature solve? What is the motivation behind this request?
+      placeholder: Describe the problem or context...
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe your proposed change or addition.
+      placeholder: Describe the solution...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: List any alternative solutions you have considered.
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope
+      description: Which area does this feature request affect?
+      options:
+        - Templates (issue/PR/discussion)
+        - Workflows (CI/CD, security, compliance)
+        - Governance documents (README, SECURITY, CONTRIBUTING, etc.)
+        - Repository configuration (CODEOWNERS, dependabot, etc.)
+        - Other
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched for existing issues or discussions about this topic.
+          required: true
+        - label: This request aligns with AT Medical organization standards.
+          required: true

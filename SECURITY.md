@@ -10,7 +10,7 @@ Do not open a public GitHub issue for security vulnerabilities.
 
 Instead, please contact us directly:
 
-Email: security@at-medical.example
+Email: security@at-medical.de
 
 Include the following information if possible:
 
@@ -50,3 +50,7 @@ This policy applies to all repositories under the AT-Medical GitHub organization
 ## Thank You
 
 We appreciate responsible disclosure and thank you for helping improve the security of our systems.
+
+---
+
+> **Version:** 0.9.0 | **Date:** 2026-03-16 | **Status:** verified | **Repository:** .github
