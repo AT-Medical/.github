@@ -1,0 +1,47 @@
+title: "[GOVERNANCE] "
+labels:
+  - governance
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this discussion to propose, debate, or document decisions related to
+        AT Medical organization-wide governance, policies, or standards.
+
+  - type: textarea
+    id: topic
+    attributes:
+      label: Topic
+      description: What is the governance topic you want to discuss?
+      placeholder: Describe the topic...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Policy
+        - Templates
+        - Workflows
+        - Documentation
+        - Security
+        - Compliance
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context and background
+      description: Provide any relevant context or background information.
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal or question
+      description: State your proposal or question clearly.
+    validations:
+      required: true

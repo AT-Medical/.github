@@ -1,0 +1,55 @@
+name: Governance feedback
+description: Provide feedback on organization-wide governance files, policies, or standards
+title: "[GOVERNANCE] "
+labels: governance
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to suggest changes or raise concerns regarding
+        AT Medical governance documents, policies, or organization-wide standards.
+
+  - type: dropdown
+    id: document
+    attributes:
+      label: Related document or area
+      description: Which governance document or area does this feedback concern?
+      options:
+        - CODE_OF_CONDUCT.md
+        - CONTRIBUTING.md
+        - SECURITY.md
+        - LICENSE
+        - CODEOWNERS
+        - README.md
+        - ARCHITECTURE.md
+        - DECISIONS.md
+        - Templates (issue / PR / discussion)
+        - Workflows
+        - Repository metadata / configuration
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: feedback
+    attributes:
+      label: Feedback
+      description: Describe your concern, suggestion, or question in detail.
+      placeholder: Describe your feedback...
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_change
+    attributes:
+      label: Proposed change (optional)
+      description: If you have a specific change in mind, describe it here.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have reviewed the existing governance documents before submitting this feedback.
+          required: true

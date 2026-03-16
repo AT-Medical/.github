@@ -58,3 +58,7 @@ All contributors are expected to follow the [Code of Conduct](CODE_OF_CONDUCT.md
 ## Questions
 
 For questions about contribution, open a GitHub Discussion or contact us via the [AT Medical contact form](https://www.at-medical.de/kontakt).
+
+---
+
+> **Version:** 0.9.0 | **Date:** 2026-03-16 | **Status:** verified | **Repository:** .github
