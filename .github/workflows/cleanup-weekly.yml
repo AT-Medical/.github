@@ -1,0 +1,57 @@
+name: Weekly Cleanup
+
+on:
+  schedule:
+    - cron: "0 3 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  stale-prs:
+    name: Mark Stale Pull Requests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mark stale PRs and issues
+        uses: actions/stale@v9
+        with:
+          stale-pr-message: >
+            This pull request has been automatically marked as stale because it has not had
+            any activity in the past 30 days. It will be closed in 14 days if no further
+            activity occurs. Please update or close it if it is no longer relevant.
+          close-pr-message: >
+            This pull request has been automatically closed due to inactivity.
+            It can be reopened if the work is resumed.
+          days-before-pr-stale: 30
+          days-before-pr-close: 14
+          stale-pr-label: "stale"
+          exempt-pr-labels: "pinned,security,in-progress"
+          # Do not mark issues stale – only PRs
+          days-before-issue-stale: -1
+          days-before-issue-close: -1
+
+  artifact-cleanup:
+    name: Report Artifact Directories Status
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Report artifact directory sizes
+        shell: bash
+        run: |
+          echo "== Artifact Directory Status =="
+          for d in artifacts/incoming artifacts/staged artifacts/releases; do
+            if [ -d "$d" ]; then
+              count=$(find "$d" -type f | wc -l)
+              echo "$d: $count file(s)"
+            else
+              echo "$d: directory not found"
+            fi
+          done
+          echo "Cleanup report complete."

@@ -58,24 +58,48 @@ run_test ".github/workflows/security-scan.yml exists"         "$(file_exists .gi
 run_test ".github/workflows/compliance-check.yml exists"      "$(file_exists .github/workflows/compliance-check.yml)"
 run_test ".github/workflows/reusable-ci.yml exists"           "$(file_exists .github/workflows/reusable-ci.yml)"
 run_test ".github/workflows/doc-consistency-check.yml exists" "$(file_exists .github/workflows/doc-consistency-check.yml)"
+run_test ".github/workflows/ci-validation.yml exists"         "$(file_exists .github/workflows/ci-validation.yml)"
+run_test ".github/workflows/governance-check.yml exists"      "$(file_exists .github/workflows/governance-check.yml)"
+run_test ".github/workflows/tag-validation.yml exists"        "$(file_exists .github/workflows/tag-validation.yml)"
+run_test ".github/workflows/file-tagging.yml exists"          "$(file_exists .github/workflows/file-tagging.yml)"
+run_test ".github/workflows/dependency-check.yml exists"      "$(file_exists .github/workflows/dependency-check.yml)"
+run_test ".github/workflows/cleanup-weekly.yml exists"        "$(file_exists .github/workflows/cleanup-weekly.yml)"
+run_test ".github/workflows/repository-selfcheck.yml exists"  "$(file_exists .github/workflows/repository-selfcheck.yml)"
 
 # Directories
 run_test "docs/ directory exists"              "$(dir_exists docs)"
 run_test "docs/architecture/ directory exists" "$(dir_exists docs/architecture)"
 run_test "docs/security/ directory exists"     "$(dir_exists docs/security)"
 run_test "docs/deployment/ directory exists"   "$(dir_exists docs/deployment)"
+run_test "docs/governance/ directory exists"   "$(dir_exists docs/governance)"
+run_test "docs/operations/ directory exists"   "$(dir_exists docs/operations)"
 run_test "tests/ directory exists"             "$(dir_exists tests)"
 run_test "scripts/ directory exists"           "$(dir_exists scripts)"
+run_test "scripts/validate/ directory exists"  "$(dir_exists scripts/validate)"
 run_test "metadata/ directory exists"          "$(dir_exists metadata)"
+run_test "metadata/tags/ directory exists"     "$(dir_exists metadata/tags)"
+run_test "configs/automation/ directory exists" "$(dir_exists configs/automation)"
+run_test "templates/ directory exists"         "$(dir_exists templates)"
+run_test "status/ directory exists"            "$(dir_exists status)"
+run_test "artifacts/ directory exists"         "$(dir_exists artifacts)"
 
 # Documentation files
 run_test "docs/architecture/overview.md exists"       "$(file_exists docs/architecture/overview.md)"
 run_test "docs/security/security-model.md exists"     "$(file_exists docs/security/security-model.md)"
 run_test "docs/deployment/deployment.md exists"       "$(file_exists docs/deployment/deployment.md)"
 
+# Metadata files
+run_test "metadata/repository-profile.yml exists"     "$(file_exists metadata/repository-profile.yml)"
+run_test "metadata/tags/taxonomy.yml exists"          "$(file_exists metadata/tags/taxonomy.yml)"
+run_test "metadata/tags/rules.yml exists"             "$(file_exists metadata/tags/rules.yml)"
+run_test "metadata/tags/file-tags.yml exists"         "$(file_exists metadata/tags/file-tags.yml)"
+
+# Scripts
+run_test "scripts/validate/repository-selfcheck.sh exists" "$(file_exists scripts/validate/repository-selfcheck.sh)"
+
 # Issue templates
-run_test ".github/ISSUE_TEMPLATE/bug_report.yml exists"        "$(file_exists .github/ISSUE_TEMPLATE/bug_report.yml)"
-run_test ".github/ISSUE_TEMPLATE/feature_request.yml exists"   "$(file_exists .github/ISSUE_TEMPLATE/feature_request.yml)"
+run_test ".github/ISSUE_TEMPLATE/bug_report.yml exists"          "$(file_exists .github/ISSUE_TEMPLATE/bug_report.yml)"
+run_test ".github/ISSUE_TEMPLATE/feature_request.yml exists"     "$(file_exists .github/ISSUE_TEMPLATE/feature_request.yml)"
 run_test ".github/ISSUE_TEMPLATE/governance_feedback.yml exists" "$(file_exists .github/ISSUE_TEMPLATE/governance_feedback.yml)"
 
 # YAML validity check for workflow files (requires python3 with pyyaml)

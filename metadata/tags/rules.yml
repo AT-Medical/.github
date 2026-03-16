@@ -1,0 +1,31 @@
+---
+# AT Medical Enterprise Tag Rules
+# Defines mandatory and optional tagging rules for files and repositories.
+
+mandatory_tags:
+  - domain
+  - repo-type
+  - team-owner
+  - security-class
+  - visibility
+  - lifecycle-state
+
+optional_tags:
+  - deploy-target
+  - review-level
+  - maintenance-level
+
+validation:
+  fail_on_missing_mandatory: true
+  fail_on_unknown_values: true
+  warn_on_missing_optional: true
+
+inheritance:
+  # Files may inherit tags from repository-profile.yml if not explicitly set.
+  allow_inheritance: true
+  inheritance_source: "metadata/repository-profile.yml"
+
+tag_format:
+  # Tags in file headers must use the format: "# @tag: value"
+  header_prefix: "# @tag:"
+  yaml_key: "tags"

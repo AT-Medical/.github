@@ -19,10 +19,20 @@ Scripts placed here should support:
 
 ## Current Scripts
 
-No scripts are currently defined for this repository.
+| Script | Purpose |
+|--------|---------|
+| [`validate/repository-selfcheck.sh`](validate/repository-selfcheck.sh) | Full repository health self-check |
 
-Scripts for infrastructure, deployment, or operational automation belong in the appropriate domain repository (see [`REPOSITORY_MAP.md`](../REPOSITORY_MAP.md) for details):
+### Usage
 
-- `ATMED-infrastructure/scripts/` – VPS and server automation
-- `ATMED-devops/scripts/` – CI/CD and deployment automation
-- `ATMED-tools/scripts/` – Utility and maintenance scripts
+```bash
+bash scripts/validate/repository-selfcheck.sh
+```
+
+## Structure
+
+| Directory | Purpose |
+|-----------|---------|
+| `validate/` | Repository structure and metadata validation |
+| `reporting/` | Status and reporting scripts |
+| `cleanup/` | Cleanup and housekeeping scripts |

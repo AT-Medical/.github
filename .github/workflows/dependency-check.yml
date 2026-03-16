@@ -1,0 +1,62 @@
+name: Dependency Check
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+  schedule:
+    - cron: "0 4 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  dependency-review:
+    name: Dependency License and Vulnerability Review
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v4
+        with:
+          fail-on-severity: high
+          deny-licenses: GPL-2.0, GPL-3.0, LGPL-2.0, LGPL-2.1, AGPL-3.0
+
+  action-versions:
+    name: Check Action Version Pinning
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check for unpinned actions
+        shell: bash
+        run: |
+          set -e
+          unpinned=0
+
+          # Look for actions that use branch references instead of pinned tags
+          while IFS= read -r -d '' wf; do
+            if grep -E "uses: [^@]+@(main|master|develop|latest)" "$wf" > /dev/null 2>&1; then
+              echo "WARNING: $wf uses unpinned action version (branch reference)."
+              grep -n -E "uses: [^@]+@(main|master|develop|latest)" "$wf"
+              unpinned=$((unpinned + 1))
+            fi
+          done < <(find .github/workflows -maxdepth 1 -name "*.yml" -print0 2>/dev/null)
+
+          if [ "$unpinned" -gt 0 ]; then
+            echo "$unpinned workflow(s) use unpinned action versions."
+            echo "Consider pinning actions to a specific version tag."
+          else
+            echo "No unpinned action references found."
+          fi

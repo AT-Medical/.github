@@ -31,6 +31,12 @@ repository:
 
   deploy_targets: []
   customer_facing: false
+  sensitivity_level: low
+  status_relevance: critical
+  artifact_intake_allowed: false
+  vps_import_allowed: false
+  webspace_import_allowed: false
+  r2_import_allowed: false
 
   contacts:
     security: security@at-medical.de

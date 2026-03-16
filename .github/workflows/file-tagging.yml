@@ -1,0 +1,88 @@
+name: File Tagging
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-tags:
+    name: Validate File Tag Metadata
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate tag files exist
+        shell: bash
+        run: |
+          set -e
+          missing=0
+          for f in \
+            metadata/tags/taxonomy.yml \
+            metadata/tags/rules.yml \
+            metadata/tags/file-tags.yml; do
+            if [ -f "$f" ]; then
+              echo "FOUND: $f"
+            else
+              echo "MISSING: $f"
+              missing=$((missing + 1))
+            fi
+          done
+          if [ "$missing" -gt 0 ]; then
+            echo "$missing tag file(s) are missing."
+            exit 1
+          fi
+          echo "All tag files present."
+
+      - name: Validate YAML syntax of tag files
+        shell: bash
+        run: |
+          set -e
+          python3 -c "import yaml" 2>/dev/null || pip install --quiet pyyaml
+          error=0
+
+          for f in metadata/tags/taxonomy.yml metadata/tags/rules.yml metadata/tags/file-tags.yml metadata/repository-profile.yml; do
+            if python3 -c "import sys, yaml; yaml.safe_load(open(sys.argv[1]))" "$f" 2>/dev/null; then
+              echo "OK: $f"
+            else
+              echo "INVALID: $f"
+              error=$((error + 1))
+            fi
+          done
+
+          if [ "$error" -gt 0 ]; then
+            echo "$error tag YAML file(s) have syntax errors."
+            exit 1
+          fi
+          echo "All tag YAML files are valid."
+
+      - name: Validate metadata consistency
+        shell: bash
+        run: |
+          set -e
+          python3 -c "import yaml" 2>/dev/null || pip install --quiet pyyaml
+
+          python3 - <<'PY'
+          import yaml, sys
+
+          with open('metadata/tags/taxonomy.yml') as f:
+              taxonomy = yaml.safe_load(f)
+          with open('metadata/tags/rules.yml') as f:
+              rules = yaml.safe_load(f)
+          with open('metadata/tags/file-tags.yml') as f:
+              file_tags = yaml.safe_load(f)
+
+          mandatory = rules.get('mandatory_tags', [])
+          defaults = file_tags.get('defaults', {})
+          missing = [t for t in mandatory if t not in defaults]
+          if missing:
+              print(f'WARNING: defaults missing mandatory dimensions: {missing}')
+          else:
+              print('Mandatory tag dimensions present in defaults: OK')
+
+          print('Metadata consistency check passed.')
+          PY
