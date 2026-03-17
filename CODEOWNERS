@@ -16,6 +16,13 @@ CODE_OF_CONDUCT.md @AT-Medical/devops-team @AT-Medical/legal-team
 CONTRIBUTING.md @AT-Medical/devops-team @AT-Medical/admin-team
 .github/workflows/compliance-check.yml @AT-Medical/devops-team @AT-Medical/admin-team
 
+# Workflow files — all require DevOps review
+.github/workflows/ @AT-Medical/devops-team
+
+# Templates and org-wide issue templates
+templates/ @AT-Medical/devops-team @AT-Medical/admin-team
+ISSUE_TEMPLATE/ @AT-Medical/devops-team @AT-Medical/admin-team
+
 # Metadata and configuration
 metadata/ @AT-Medical/devops-team @AT-Medical/admin-team
 configs/ @AT-Medical/devops-team @AT-Medical/admin-team
