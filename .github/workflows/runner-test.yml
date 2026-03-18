@@ -1,0 +1,32 @@
+name: ATMED Runner Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-runner:
+    runs-on: [self-hosted, atmed, vps, production]
+
+    steps:
+      - name: Check system info
+        run: |
+          echo "===== ATMED RUNNER TEST ====="
+          hostname
+          whoami
+          pwd
+          date
+
+      - name: Check Docker
+        run: |
+          echo "===== DOCKER STATUS ====="
+          docker ps || echo "Docker not accessible"
+
+      - name: Check ATMED directories
+        run: |
+          echo "===== ATMED STRUCTURE ====="
+          ls -la /srv/atmed || echo "Directory not found"
+
+      - name: Write test report
+        run: |
+          mkdir -p /srv/atmed/reports
+          echo "ATMED Runner Test OK - $(date)" >> /srv/atmed/reports/runner_test.log
