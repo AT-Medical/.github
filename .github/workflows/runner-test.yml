@@ -5,7 +5,7 @@ on:
 
 jobs:
   test-runner:
-    runs-on: [self-hosted, atmed, vps, production]
+    runs-on: self-hosted
 
     steps:
       - name: Check system info
