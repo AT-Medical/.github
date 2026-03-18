@@ -1,0 +1,31 @@
+# AT Medical — Git Attributes
+
+# Default: normalize line endings to LF on commit
+* text=auto eol=lf
+
+# Shell scripts
+*.sh text eol=lf
+
+# YAML and JSON
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+
+# Markdown
+*.md text eol=lf
+
+# Language statistics — mark generated or vendor files
+vendor/** linguist-vendored
+*.min.js linguist-generated
+*.min.css linguist-generated
+
+# Binary files — do not diff or convert
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg binary
+*.pdf binary
+*.zip binary
+*.tar.gz binary

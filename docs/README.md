@@ -7,6 +7,7 @@ This directory contains supplementary documentation for the AT Medical GitHub or
 | File / Folder | Purpose |
 |---|---|
 | *(this index)* | Documentation overview |
+| [`ORG_STANDARDS.md`](ORG_STANDARDS.md) | Organization-wide standards and inheritance guide |
 | [`architecture/`](architecture/README.md) | Architecture documentation |
 | [`security/`](security/README.md) | Security model documentation |
 | [`deployment/`](deployment/README.md) | Deployment process documentation |

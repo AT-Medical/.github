@@ -1,0 +1,9 @@
+blank_issues_enabled: true
+
+contact_links:
+  - name: AT Medical Discussions
+    url: https://github.com/orgs/AT-Medical/discussions
+    about: Ask questions and discuss ideas with the AT Medical community.
+  - name: Security Vulnerability (Private)
+    url: https://github.com/AT-Medical/.github/security/advisories/new
+    about: Report a critical security vulnerability privately using GitHub's security advisory system.
